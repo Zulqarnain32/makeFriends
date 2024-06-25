@@ -31,14 +31,16 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:5000/auth/user')  // Use the correct URL
-      .then(response => setUserData(response.data));
+    axios.get('http://localhost:5000/auth/user')  
+      .then(response => {
+        console.log("resp ", response);
+        setUserData(response.data)
+      });
   }, []);
 
   return (
     <div className="navbar-container">
       <div className="logo-side">
-        {/* <img src="/assets/logi1.png" className="logo-img" /> */}
         <h2>MakeFriends</h2>
 
       </div>
@@ -58,6 +60,9 @@ const Navbar = () => {
         
         <Link className="nav-link none" to="/secret">
           Secret
+        </Link>
+        <Link className="nav-link none" to="/secret">
+          {userData.email}
         </Link>
         {window.localStorage.length > 0 ? (
           <Link to="/" onClick={handleCloseSlidebar}>

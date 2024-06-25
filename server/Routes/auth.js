@@ -44,46 +44,25 @@ router.post('/login' , async (req,res) => {
 })
 
 
-// User Panel 
-const verifyUser = (req,res,next) => {
-    const token = req.cookies.token;
-    if(!token){
-       console.log("token is mising");
-       return res.json("token is missing")
-    } else {
-        jwt.verify(token,"Secret Key", (err,decoded) => {
-            if(err){
-                console.log("token error");
-                return res.json("error with token")
-            } else{ 
-                // console.log("Decoded:", decoded);
-            if(decoded.role == "admin"){
-                console.log("this is  admin");
-                  res.json("admin")
-                next(); 
-            }  
-            else if(decoded.role == "recruiter"){
-                console.log("this is  recruiter ");
-                 res.json("recruiter")
-                next();
-            } 
-            else if (decoded.role == "user"){
-                 console.log("this is user");
-                 res.json("user")
-                next();
-            } else{
-                 console.log("error with decoded");
-                 res.json("error with decoded");
-            }
-        }
-       }) 
-    }
-  }
-  router.get('/dashboard', verifyUser, (req,res) => {
-    res.json("success")
-  })
+ 
 
-  
+  const verifyToken = (req, res, next) => {
+    const token = req.cookies.token;
+    if (!token) {
+      console.log('No token found');
+      return res.status(401).json({ message: 'Unauthorized' });
+    }
+    jwt.verify(token, 'Secret Key', (err, decoded) => {
+      if (err) {
+        console.error('Error verifying token:', err);
+        return res.status(401).json({ message: 'Invalid token' });
+      }
+      console.log('Decoded token:', decoded);
+      req.userId = decoded.id;
+      req.userRole = decoded.role;
+      next();
+    });
+  };
 
 //   get single user 
 router.get('/user', verifyToken, async (req, res) => {
@@ -98,10 +77,8 @@ router.get('/user', verifyToken, async (req, res) => {
 
 
 
-
-
 //fetch all the users stakeholders
-router.get('/stakeholders', async (req,res) => {
+router.get('/allusers', async (req,res) => {
     UserModel.find({})
     .then((users) =>{
         return res.json(users)
