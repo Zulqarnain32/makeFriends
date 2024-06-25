@@ -18,22 +18,22 @@ const Navbar = () => {
   const [userData, setUserData] = useState({});
   axios.defaults.withCredentials = true;
   const handleLogout = () => {
-    // console.log("logout button is clicked");
-    // window.localStorage.clear();
-    // axios
-    //   .get("http://localhost:5000/auth/logout")
-    //   .then((result) => {
-    //     console.log(result.data.message);
-    //     window.location.reload();
-    //     console.log("token is clear " + result);
-    //   })
-    //   .catch((err) => console.log(err));
+    console.log("logout button is clicked");
+    window.localStorage.clear();
+    axios
+      .get("http://localhost:5000/auth/logout")
+      .then((result) => {
+        console.log(result.data.message);
+        window.location.reload();
+        console.log("token is clear " + result);
+      })
+      .catch((err) => console.log(err));
   };
 
-//   useEffect(() => {
-//     axios.get('http://localhost:5000/auth/user')  // Use the correct URL
-//       .then(response => setUserData(response.data));
-//   }, []);
+  useEffect(() => {
+    axios.get('http://localhost:5000/auth/user')  // Use the correct URL
+      .then(response => setUserData(response.data));
+  }, []);
 
   return (
     <div className="navbar-container">
@@ -56,9 +56,9 @@ const Navbar = () => {
 
 
         
-        {/* <Link className="nav-link none">
-          {userData.email}
-        </Link> */}
+        <Link className="nav-link none" to="/secret">
+          Secret
+        </Link>
         {window.localStorage.length > 0 ? (
           <Link to="/" onClick={handleCloseSlidebar}>
             <button className="login-nav-btn common-btn" onClick={handleLogout}>
