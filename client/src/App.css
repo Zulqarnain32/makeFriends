@@ -114,6 +114,44 @@ color:#247bf7;
 
 
 
+
+/*? all user ppage */
+.user-head{
+  margin-top: 30px;
+  text-align: center;
+}
+.users-container{
+  display: flex;
+  justify-content: flex-start;
+  width: 90%;
+  margin: 60px auto 30px auto;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.single-user{
+  background-color: rgb(165, 204, 251);
+  padding: 10px 30px;
+  width: 31%;
+}
+.single-user p{
+  margin-top: 10px;
+}
+.add-friend{
+  padding: 10px 12px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 2px;
+  background-color: #247bf7;
+  color: #fff;
+  float: right;
+}
+.add-friend:hover{
+  background-color: #1e36d3;
+}
+
+
+
 @media (max-width: 500px) {
   .menu-icon {
     display: block;

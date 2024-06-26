@@ -13,16 +13,18 @@ const Home = () => {
   
   return (
     <>
-      <h1>Home page</h1>
-      <h2>All Users</h2>
-      {
+      <h1 className='user-head'>All Users</h1>
+     <div className='users-container'>
+     {
         allusers.map((user,i) => (
-          <div key={i}>
-             <h1>{user.name}</h1>
-             <h1>{user.email}</h1>
+          <div key={i} className='single-user'>
+             <h2> {user.name}</h2>
+             <p>{user.email}</p>
+             <button className='add-friend'>Add Friend</button>
           </div>
         ))
       }
+     </div>
     </>
   )
 }
