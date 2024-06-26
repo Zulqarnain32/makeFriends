@@ -77,7 +77,7 @@ router.get('/user', verifyToken, async (req, res) => {
 
 
 
-//fetch all the users stakeholders
+//fetch all the users 
 router.get('/allusers', async (req,res) => {
     UserModel.find({})
     .then((users) =>{
@@ -91,5 +91,45 @@ router.get('/logout',  (req,res) => {
     res.clearCookie('token')
     return res.json({message:"token removed"})
 })
+
+
+// Add Friend Route
+router.post('/addfriend', verifyToken, async (req, res) => {
+  const { friendId } = req.body;
+  try {
+      const user = await UserModel.findById(req.userId);
+      if (!user) {
+          return res.status(404).json({ message: 'User not found' });
+      }
+
+      // Check if friendId is already in the friends list
+      if (user.friends.includes(friendId)) {
+          return res.status(400).json({ message: 'Friend already added' });
+      }
+
+      // Add friendId to the user's friends list
+      user.friends.push(friendId);
+      await user.save();
+
+      return res.json({ message: 'Friend added successfully', friends: user.friends });
+  } catch (error) {
+      console.error('Error adding friend:', error);
+      return res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+
+// Get friends of the logged-in user
+router.get('/friends', verifyToken, async (req, res) => {
+  try {
+      const user = await UserModel.findById(req.userId).populate('friends', 'name email');
+      res.json(user.friends);
+  } catch (error) {
+      console.error('Error fetching friends:', error);
+      res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+
+
+
 
 module.exports = router
