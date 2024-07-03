@@ -59,7 +59,7 @@ const Navbar = () => {
 
 
         
-        <Link className="nav-link none" to="/secret">
+        <Link className="nav-link " to="/secret">
           Secret
         </Link>
        
