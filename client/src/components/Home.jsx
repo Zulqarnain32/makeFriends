@@ -6,7 +6,7 @@ const Home = () => {
   const [friends, setFriends] = useState([])
 
   useEffect(() => {
-    axios.get("http://localhost:5000/auth/allusers")
+    axios.get("https://make-friends-seven.vercel.app/auth/allusers")
       .then(res => {
         setAllUsers(res.data)
       })

@@ -32,7 +32,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:5000/auth/user')  
+    axios.get('https://make-friends-seven.vercel.app/auth/user')  
       .then(response => {
         console.log("resp ", response);
         setUserData(response.data)
