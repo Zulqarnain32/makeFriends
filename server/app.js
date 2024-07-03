@@ -7,7 +7,7 @@ const userRouter = require('./Routes/auth')
 
 const port = 5000;
 app.use(cors({
-    origin: ['https://make-friends-sigma.vercel.app/'],
+    origin: ['https://make-friends-sigma.vercel.app'],
     method: ['GET','POST','DELETE','PUT'],
     credentials:true
 }))
@@ -19,6 +19,10 @@ mongoose.connect("mongodb+srv://zulqarnainc:haider@cluster0.nlftiui.mongodb.net/
 .then(() => {
     console.log("connected successfully");
 }).catch(err => console.log(err))
+
+app.get("/", (req,res) => {
+    res.json("Hello World")
+})
 
 
 app.listen(port, () => {
