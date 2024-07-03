@@ -208,4 +208,9 @@ color:#247bf7;
      color: #247bf7 !important;
      margin-top: 10px !important;
   }
+  .single-user{
+    background-color: rgb(165, 204, 251);
+    padding: 10px 30px;
+    width: 100%;
+  }
 }
