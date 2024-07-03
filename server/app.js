@@ -7,8 +7,8 @@ const userRouter = require('./Routes/auth')
 
 const port = 5000;
 app.use(cors({
-    // origin: ['http://localhost:5173'],
-    origin: ['https://make-friends-seven.vercel.app/'],
+    origin: ['http://localhost:5173'],
+    // origin: ['https://make-friends-seven.vercel.app/'],
     // origin: ["https://make-friends-frontend.vercel.app/"],
     method: ['GET','POST','DELETE','PUT'],
     credentials:true
