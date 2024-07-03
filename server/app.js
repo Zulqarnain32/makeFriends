@@ -15,12 +15,12 @@ app.use(express.json())
 app.use(cookieParser())
 app.use('/auth',userRouter)
 
-mongoose.connect('mongodb://127.0.0.1:27017/MakeFriends')
+mongoose.connect("mongodb+srv://zulqarnainc:haider@cluster0.nlftiui.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 .then(() => {
     console.log("connected successfully");
 }).catch(err => console.log(err))
 
 
 app.listen(port, () => {
-    console.log("server is listening at port no 5000");
+    console.log("server is still listening at port no 5000");
 })
