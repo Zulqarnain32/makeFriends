@@ -96,8 +96,10 @@ router.get('/logout',  (req,res) => {
 // Add Friend Route
 router.post('/addfriend', verifyToken, async (req, res) => {
   const { friendId } = req.body;
+  console.log("a ki aay",friendId)
   try {
       const user = await UserModel.findById(req.userId);
+      console.log(user);
       if (!user) {
           return res.status(404).json({ message: 'User not found' });
       }

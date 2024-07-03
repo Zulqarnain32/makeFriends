@@ -19,7 +19,7 @@ const App = () => {
            <Route path='/login' element = {<Login/>}/>
            <Route path='/friends' element = {<Friends/>}/>
            <Route path='/register' element = {<Registration/>}/>
-           <Route path='/secret' element = {window.localStorage.length > 0 ? <Secret/> : <Home/>}/>
+           <Route path='/secret' element = {window.localStorage.length > 0 ? <Secret/> : <Registration/>}/>
          </Routes>
       </BrowserRouter>
     </>

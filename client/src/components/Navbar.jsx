@@ -61,6 +61,8 @@ const Navbar = () => {
         <Link className="nav-link none" to="/secret">
           Secret
         </Link>
+       
+
         <Link className="nav-link none" to="/secret">
           {userData.email}
         </Link>
