@@ -7,7 +7,7 @@ const userRouter = require('./Routes/auth')
 
 const port = 5000;
 app.use(cors({
-    origin: ['http://deploy-mern-1whq.vercel.app'],
+    origin: ['https://make-friends-sigma.vercel.app/'],
     method: ['GET','POST','DELETE','PUT'],
     credentials:true
 }))
