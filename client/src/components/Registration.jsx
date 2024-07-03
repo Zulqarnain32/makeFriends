@@ -12,7 +12,8 @@ const Registration = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/auth/register", { name, email, password })
+      // .post("http://localhost:5000/auth/register", { name, email, password })
+      .post("https://make-friends-seven.vercel.app/auth/register", { name, email, password })
       .then((result) => {
         if (result.data.message == "user register successfully") {
           console.log(result);

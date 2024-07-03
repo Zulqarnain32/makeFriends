@@ -21,7 +21,8 @@ const Navbar = () => {
     console.log("logout button is clicked");
     window.localStorage.clear();
     axios
-      .get("http://localhost:5000/auth/logout")
+      // .get("http://localhost:5000/auth/logout")
+      .get("https://make-friends-seven.vercel.app/auth/logout")
       .then((result) => {
         console.log(result.data.message);
         window.location.reload();

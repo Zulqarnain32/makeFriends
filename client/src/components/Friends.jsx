@@ -5,7 +5,8 @@ const Friends = () => {
   const [friends, setFriends] = useState([])
 
   useEffect(() => {
-    axios.get("http://localhost:5000/auth/friends", { withCredentials: true })
+    // axios.get("http://localhost:5000/auth/friends", { withCredentials: true })
+    axios.get("https://make-friends-seven.vercel.app/auth/friends", { withCredentials: true })
       .then(res => {
         setFriends(res.data)
       })

@@ -14,7 +14,8 @@ const Home = () => {
 
   const addFriend = async (friendId) => {
     try {
-      const res = await axios.post("http://localhost:5000/auth/addfriend", { friendId }, { withCredentials: true });
+      // const res = await axios.post("http://localhost:5000/auth/addfriend", { friendId }, { withCredentials: true });
+      const res = await axios.post("https://make-friends-seven.vercel.app/auth/addfriend", { friendId }, { withCredentials: true });
       setFriends(res.data.friends);
     } catch (error) {
       console.error('Error adding friend:', error);

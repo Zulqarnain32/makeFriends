@@ -14,7 +14,8 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/auth/login", { email, password })
+      // .post("http://localhost:5000/auth/login", { email, password })
+      .post("https://make-friends-seven.vercel.app/auth/login", { email, password })
       .then((result) => {
         if (result.data.message === "logined") {
           console.log(result.data.role + " you are");
