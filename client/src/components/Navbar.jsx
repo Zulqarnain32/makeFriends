@@ -62,7 +62,7 @@ const Navbar = () => {
 
 
         
-        <Link className="nav-link " to="/secret">
+        <Link className="nav-link " to="/secret" onClick={handleCloseSlidebar}>
           Secret
         </Link>
        
