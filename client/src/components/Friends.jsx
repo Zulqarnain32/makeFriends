@@ -9,6 +9,9 @@ const Friends = () => {
     axios.get("https://make-friends-seven.vercel.app/auth/friends", { withCredentials: true })
       .then(res => {
         setFriends(res.data)
+      }).catch(err => {
+        console.log("friends error");
+        console.log("friend error is", err);
       })
   }, [])
 

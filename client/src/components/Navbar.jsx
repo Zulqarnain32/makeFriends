@@ -36,7 +36,10 @@ const Navbar = () => {
       .then(response => {
         console.log("resp ", response);
         setUserData(response.data)
-      });
+      }).catch(err => {
+        console.log("Navbar Error");
+        console.log("Navbar eerror is ", err);
+      })
   }, []);
 
   return (
