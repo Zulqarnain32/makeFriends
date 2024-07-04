@@ -20,7 +20,10 @@ const Login = () => {
         if (result.data.message === "logined") {
           console.log(result.data.role + " you are");
           window.localStorage.setItem("id", result.data.id);
+<<<<<<< HEAD
             // navigate("/secret");
+=======
+>>>>>>> 79200398350eb5771cb7c9db362dcae371254eeb
             navigate("/");
           window.location.reload();
         } else if (result.data.message == "please fil all fields") {
